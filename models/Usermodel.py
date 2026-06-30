@@ -17,6 +17,7 @@ class User(Base):
     year_of_study=Column(Integer,nullable=False)
     created_at=Column(DateTime,default=lambda:datetime.now(timezone.utc),nullable=False)
     is_verified=Column(Boolean,nullable=False,default=False)
+    is_active=Column(Boolean,nullable=False,default=True)
 
     subjects = relationship("Subject", back_populates="user", cascade="all, delete-orphan")
     tasks = relationship("Task", back_populates="user", cascade="all, delete-orphan")

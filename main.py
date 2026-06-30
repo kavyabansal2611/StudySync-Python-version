@@ -9,17 +9,7 @@ from database import engine
 
 model.Base.metadata.create_all(bind=engine)
 app = FastAPI()
-origins=[
 
-]
-app.add_middleware(
-    CORSMiddleware
-    allow_origins=origins
-    allow_credentials=
-    allow_methods=['GET','POST','PATCH','OPTIONS'],
-    allow_headers=["*"]
-
-)
 
 
 
