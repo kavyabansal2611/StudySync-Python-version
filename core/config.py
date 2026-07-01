@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     EMAIL_FROM: str
     FRONTEND_URL: str
     EMAIL_VERIFICATION_EXPIRE_HOURS:int
+    APP_NAME:str="StudySync"
+    DEBUG: bool = False
 
     class Config:
         env_file = ".env"

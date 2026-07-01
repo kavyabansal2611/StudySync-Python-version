@@ -1,16 +1,12 @@
-from fastapi import FastAPI,Depends,HTTPException
+from fastapi import FastAPI
 import uvicorn
-from sqlalchemy.orm import Session
-from database import get_db
-import model,schemas
-from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
-from database import engine
+from routers.auth_router import router as auth_router
+from core.config import settings
 
-model.Base.metadata.create_all(bind=engine)
-app = FastAPI()
+app = FastAPI(title=settings.APP_NAME, debug=settings.DEBUG)
+
+app.include_router(auth_router, prefix="/api/v1")
 
 
 
-
-
+1   

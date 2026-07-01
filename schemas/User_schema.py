@@ -20,7 +20,8 @@ class UserCreate(BaseModel):
     year_of_study:int
     username:str
     @field_validator("password")
-    def password_strength(self,v):
+    @classmethod
+    def password_strength(cls,v:str)->str:
         if len(v) < 8:
             raise ValueError("Password must be at least 8 characters")
         if not re.search(r"[A-Z]", v):
@@ -60,7 +61,8 @@ class PasswordResetConfirm(BaseModel):
     token:str
     new_password:str
     @field_validator("new_password")
-    def password_strength(self,v):
+    @classmethod
+    def password_strength(cls,v:str)->str:
         if len(v) < 8:
             raise ValueError("Password must be at least 8 characters")
         if not re.search(r"[A-Z]", v):

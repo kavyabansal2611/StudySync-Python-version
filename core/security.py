@@ -2,7 +2,7 @@ import bcrypt
 import os
 import jwt
 from datetime import datetime,timedelta
-from jose import JWTError
+
 from typing import Any
 from itsdangerous import URLSafeTimedSerializer
 from core.config import settings

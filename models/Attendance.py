@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey,Text
+from sqlalchemy import Column, Integer, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime,timezone
 from database import Base
 class Attendance(Base):
     __tablename__ = 'attendances'

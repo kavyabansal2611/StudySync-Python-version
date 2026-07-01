@@ -139,7 +139,10 @@ async def reset_password(user:PasswordResetConfirm,db:AsyncSession):
     existing_user.password_hash=hash_password(user.new_password)
     await db.commit()
 
-
+async def logout_user(user: User, db: AsyncSession):
+    user.refresh_token = None  
+    await db.commit()
+    
 
     
 
